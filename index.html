@@ -6,29 +6,6 @@
 		<link rel="stylesheet" type="text/css" href="ZoranResumeCSS.css">
 
 		<style type="text/css">  </style>
-		
-		<script>
-			/*function ChangeColors(BackGroundColor){
-       			document.body.style.background = BackGroundColor;
-    			};*/
-
-    		function changeBodyBg(color){
-        		document.body.style.background = color;	
-   			 };
-
-   			 function change_text(text_color){
-        		document.body.style.color = text_color;	
-   			 };
-
-   			 function reset(ResetBackGroundColor,ResetTextColor){
-
-   			 	document.body.style.background = ResetBackGroundColor;
-
-   			 	document.body.style.color = ResetTextColor;
-   			 };
-    			
-		</script>
-
 	</head>
 	<body>
 
@@ -59,6 +36,11 @@
 
 				<label>Reset: </label>
 				<button  onclick="reset('White','Black')">Reset</button>
+			</section>
+
+			<section>
+				<p>Draw a triangle with 10 rows</p>
+				<button onclick="draw()">Draw</button>
 			</section>
 			
 			<section>
@@ -153,5 +135,41 @@
 		<footer>
 			<p class="address">2707 St Rt 307 East, Jefferson, Ohio 44047       (440)-858-3780                      zfogaras@kent.edu</p>
 		</footer>
+		<script>
+			function ChangeColors(BackGroundColor){
+				//ChangeColors functions brings the color that the user selected into the function as the BackgroundColor varaible. BackGroundColor is set to equal the background color.
+       				document.body.style.background = BackGroundColor;
+    			};
+
+    			function changeBodyBg(color){
+    				//changeBodyBg functions brings the color that the user selected into the function as the Color varaible. color is set to equal the background color.
+        			document.body.style.background = color;	
+   			 };
+
+   			 function change_text(text_color){
+   			 	   //change_text functions brings the color that the user selected into the function as the text_color varaible. text_color varaible is set to equal the document body color.
+
+        			document.body.style.color = text_color;	
+   			 };
+
+   			 function reset(ResetBackGroundColor,ResetTextColor){
+   			 	//When the button is click ResetBackgroundColor is set to white and ResetTextColor is set to black.
+   			 	document.body.style.background = ResetBackGroundColor;
+
+   			 	document.body.style.color = ResetTextColor;
+   			 };
+
+   			 function draw(){
+			    var i, j;
+			    //Outer loop I will start at 1 and then add one to itself until I is greater than or equal to 10. Than the second loop will begin
+			    for(i=1; i <= 10; i++) {
+			       //inner loop J will write * as long as I is greater than or equal to J. When I is less than J a line break happens and the outer loop repeats. 
+			      for(j=1; j<=i; j++) {
+				 document.write('*');
+					;}
+			    document.write('<br/>');
+			};
+       		  };
+		</script>
 	</body>
 </html>
