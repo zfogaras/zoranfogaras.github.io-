@@ -6,6 +6,28 @@
 		<link rel="stylesheet" type="text/css" href="ZoranResumeCSS.css">
 
 		<style type="text/css">  </style>
+		
+		<script>
+			/*function ChangeColors(BackGroundColor){
+       			document.body.style.background = BackGroundColor;
+    			};*/
+
+    		function changeBodyBg(color){
+        		document.body.style.background = color;	
+   			 };
+
+   			 function change_text(text_color){
+        		document.body.style.color = text_color;	
+   			 };
+
+   			 function reset(ResetBackGroundColor,ResetTextColor){
+
+   			 	document.body.style.background = ResetBackGroundColor;
+
+   			 	document.body.style.color = ResetTextColor;
+   			 };
+    			
+		</script>
 
 	</head>
 	<body>
@@ -16,6 +38,26 @@
 		</header>
 
 		<main>
+			<section>
+				<label>Select a Background Color: </label>
+				<button  onclick="changeBodyBg('Blue');">Blue</button>
+				<button  onclick="changeBodyBg('orange');">Orange</button>
+				<button  onclick="changeBodyBg('yellow');">Yellow</button>
+				<button  onclick="changeBodyBg('green');">Green</button>
+				<button  onclick="changeBodyBg('red');">Red</button>
+				<button  onclick="changeBodyBg('White');">White</button>
+
+				<label>Select a text Color: </label>
+				<button  onclick="change_text('Black');">Black</button>
+				<button  onclick="change_text('Blue');">Blue</button>
+				<button  onclick="change_text('Green');">Green</button>
+				<button  onclick="change_text('Red');">Red</button>
+				<button  onclick="change_text('White');">White</button>
+
+				<label>Reset: </label>
+				<button  onclick="reset('White','Black')">Reset</button>
+			</section>
+			
 			<section>
 				<h3>Education</h3>
 					
