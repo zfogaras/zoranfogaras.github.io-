@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<title></title>
+	</head>
+	<body>
+
+		<section>
+			
+
+			<label for="userEnterName">Enter a NBA player's First or Last name: </label>
+			<input type="text" placeholder="James" id="userEnterName">
+
+			<button type="button" onclick="makeIt()">Click Me</button>
+
+			<p id="playerStats"></p>
+		</section>
+		
+
+		<script type="text/javascript">
+			 // This Code displays this has error in inspect element page has error in inspect element page
+			/*
+			function makeIt(){
+			//Get player data from the API
+			$.getJSON("https://www.balldontlie.io/api/v1/players/237", function getPlayer(playerData){
+
+				var data = playerData;
+				console.log(playerData);
+
+				//var obj = JSON.parse('{"first_name":"LeBron", "last_name":"James", "position":"F", "height_feet": 6, "height_inches": 8, "weight_pounds": 250}');
+
+				var result = JSON.stringify(data);
+
+
+				document.getElementById('playerStats').innerHTML = result;
+			});
+		}; */
+
+		
+			function makeIt(){
+				//Get value from text field
+				var name = document.getElementById("userEnterName").value;
+				//Get the player's data from API with name
+			$.getJSON("https://www.balldontlie.io/api/v1/players?per_page=100&search="+ name, function getPlayer(playerData){
+				//put the player's data into the playerData then set it equal to data
+				var data = playerData;
+
+				console.log(playerData);
+				//Make the object into a string
+				var result = JSON.stringify(data);
+
+
+				//Send string to the <p> tag
+				document.getElementById('playerStats').innerHTML = result;
+			});
+		}; 
+		</script> 
+	</body>
+</html>
+
+
