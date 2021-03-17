@@ -1,0 +1,18 @@
+body{
+	font-family: 'Abhaya Libre';
+	background-color: darkgrey;
+	text-decoration-color: black;
+}
+
+button {
+  background-color: white
+  border: black;
+  padding: 7px 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+section{
+	font-family: 'Abhaya Libre';
+	border: 2px dashed white;
+}
