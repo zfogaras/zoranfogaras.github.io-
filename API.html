@@ -5,7 +5,11 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+		<link href='https://fonts.googleapis.com/css?family=Abhaya Libre' rel='stylesheet'>
+
+		<link rel="stylesheet" type="text/css" href="API.css">
 		
+		<title>NBA Player Search</title>
 	</head>
 	<body>
 
@@ -13,53 +17,59 @@
 			
 
 			<label for="userEnterName">Enter a NBA player's First or Last name: </label>
-			<input type="text" placeholder="James" id="userEnterName">
+			<input type="text" placeholder="Ex: Lebron" id="userEnterName">
 
-			<button type="button" onclick="makeIt()">Click Me</button>
-
-			<p id="playerStats"></p>
+			<button type="button" onclick="makeIt()">Search</button>
 		</section>
-		
+		<div id="resultsAll">
+			<section id="placeholder">
+				<p>Firstname: </p>
+				<p>Lastname: </p>
+				<p>Position: </p>
+				<p>Team:</p>
+			</section>
+		</div>
 
 		<script type="text/javascript">
 			 // This Code was testing for one player
-			/*
-			function makeIt(){
-			//Get player data from the API
-			$.getJSON("https://www.balldontlie.io/api/v1/players/237", function getPlayer(playerData){
-
-				var data = playerData;
-				console.log(playerData);
-
-				//var obj = JSON.parse('{"first_name":"LeBron", "last_name":"James", "position":"F", "height_feet": 6, "height_inches": 8, "weight_pounds": 250}');
-
-				var result = JSON.stringify(data);
-
-
-				document.getElementById('playerStats').innerHTML = result;
-			});
-		}; */
-
-		
-			function makeIt(){
+			
+			function makeIt() {
 				//Get value from text field
 				var name = document.getElementById("userEnterName").value;
 				//Get the player's data from API with name
-			$.getJSON("https://www.balldontlie.io/api/v1/players?per_page=100&search="+ name, function getPlayer(playerData){
-				//put the player's data into the playerData then set it equal to data
-				var data = playerData;
+				$.getJSON("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + name, function (playerData) {
+					//put the player's data into the playerData then set it equal to data
+					//var data = playerData;
 
-				console.log(playerData);
-				//Make the object into a string
-				var result = JSON.stringify(data);
+					console.log(playerData);
+					// clear the current content of the #resultsAll element
+					document.getElementById("resultsAll").innerHTML = "";
 
+					// set length of the array as a variable
+					var length = playerData.data.length;
+					let i = 0;
+					for (i = 0; i < length; i++) {
+						const playerFirstName = playerData.data[i].first_name;
 
-				//Send string to the <p> tag
-				document.getElementById('playerStats').innerHTML = result;
-			});
-		}; 
+						const playerLastName = playerData.data[i].last_name;
+
+						const playerPosition = playerData.data[i].position;
+
+						const playerTeam = playerData.data[i].team.full_name;
+
+						const newLine = document.createElement("section");
+						newLine.setAttribute("id", "result" + i);
+						const newBlock = '<p>Firstname: '+ playerFirstName + '</p><p> Lastname: ' + playerLastName + '</p ><p> Position: ' + playerPosition + '</p><p> Team: '+ playerTeam + '</p><br>';
+
+						//Send string to the <p> tag
+						newLine.innerHTML = newBlock;
+						document.getElementById('resultsAll').append(newLine);
+					};
+				});
+			};
 		</script> 
 	</body>
 </html>
+
 
 
