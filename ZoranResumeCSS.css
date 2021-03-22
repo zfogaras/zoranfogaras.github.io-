@@ -26,5 +26,21 @@ a{
 	}
 
 *{
-	font-family: "Times New Roman";
+	font-family: "Raleway";
+	background-color: lightgrey;
+}
+
+h5{
+	text-align: center;
+}
+
+
+
+header{
+	background-image: url('https://www-s3-live.kent.edu/s3fs-root/s3fs-public/styles/normal_banner/public/administrative-group/landingpage.jpg?itok=bNTzjDGT');
+	height:450px;
+}
+
+h1{
+	color: darkblue;
 }
